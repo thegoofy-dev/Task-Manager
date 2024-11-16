@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaSun, FaMoon } from 'react-icons/fa'; // Import the icons
 import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
 import './App.css';
@@ -6,6 +7,7 @@ import './App.css';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [theme, setTheme] = useState('light');  // New state for theme
 
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
@@ -37,13 +39,22 @@ function App() {
     setSearchTerm(e.target.value);
   };
 
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
   const filteredTasks = tasks.filter(task => task.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   return (
-    <div className="App">
-      <h1>Task Manager</h1>
+    <div className={`App ${theme}`}>
+      <div className="header">
+        <h1>Task Manager</h1>
+        <button className="theme-toggle-btn" onClick={toggleTheme}>
+          {theme === 'light' ? <FaMoon /> : <FaSun />} {/* Toggle the icon based on theme */}
+        </button>
+      </div>
       <TaskInput addTask={addTask} />
-      <input type="text" placeholder="Search tasks..." value={searchTerm} onChange={handleSearch} />
+      <input type="text" className="search-task" placeholder="Search tasks..." value={searchTerm} onChange={handleSearch} />
       <TaskList 
         tasks={filteredTasks} 
         deleteTask={deleteTask} 

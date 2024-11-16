@@ -1,13 +1,16 @@
 .App {
   text-align: center;
   padding: 20px;
+  height: 100vh;
 }
 
 form {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-input, select, button {
+input,
+select,
+button {
   margin: 5px;
 }
 
@@ -35,11 +38,142 @@ input, select, button {
 button {
   padding: 5px 10px;
   margin: 5px;
-  border: none;
+  border: 1px solid #ddd;
   border-radius: 5px;
   cursor: pointer;
 }
 
 button:hover {
   background-color: #ddd;
+}
+
+/* Default Light Theme */
+.App {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  padding: 6px 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+/* Dark Theme Styles */
+.App.dark {
+  background-color: #333;
+  color: white;
+}
+
+.App.dark button {
+  background-color: #555;
+  color: white;
+}
+
+.App.dark .task-item {
+  background-color: #444;
+  color: white;
+}
+
+.App.dark input,
+.App.dark select {
+  background-color: #555;
+  color: white;
+}
+
+.App.dark .task-item.completed {
+  background-color: #666;
+}
+
+/* Header with theme toggle button */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin-right: 20px;
+  font-size: 2rem;
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+.theme-toggle-btn:hover {
+  color: #f0f0f0;
+}
+
+.theme-toggle-btn:focus {
+  outline: none;
+}
+
+/* Icon button styles */
+.theme-toggle-btn {
+  font-size: 20px;
+  background: none;
+  padding: 5px;
+}
+
+#add-task {
+  border: 1px solid #ddd;
+}
+
+/* Priority Label CSS */
+.priority-label {
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Add Task Input Field */
+input[type="text"].task-title {
+  padding: 5px 15px;
+  border-radius: 8px; /* Increase the value for more rounded corners */
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 250px;
+  font-size: 1rem;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"].task-title:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Search Bar Input */
+input[type="text"].search-task {
+  padding: 10px 15px;
+  border-radius: 25px; /* Increase the value for more rounded corners */
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 400px;
+  font-size: 1rem;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"].search-task:focus {
+  outline: none;
+  border-color: #007bff;
 }
