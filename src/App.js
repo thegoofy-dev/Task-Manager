@@ -1,11 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
 import TaskInput from "./components/TaskInput";
+import TaskItem from "./components/TaskItem";
 
 function App() {
   return (
     <>
       <TaskInput />
+      <TaskItem />
     </>
   );
 }
