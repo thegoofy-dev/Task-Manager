@@ -17,7 +17,12 @@ function App() {
   }, [tasks]);
 
   const addTask = (task) => {
-    setTasks([...tasks, task]);
+    const newTasks = [...tasks, task];
+    newTasks.sort((a, b) => {
+      const priorityOrder = { 'high': 3, 'medium': 2, 'low': 1 };
+      return priorityOrder[b.priority] - priorityOrder[a.priority];
+    });
+    setTasks(newTasks);
   };
 
   const deleteTask = (id) => {
